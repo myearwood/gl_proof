@@ -1,0 +1,6 @@
+[package]
+name = "gl_proof"
+version = "0.1.0"
+authors = ["Marcus Yearwood <myearwood@users.noreply.github.com>"]
+
+[dependencies]
