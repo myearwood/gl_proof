@@ -59,7 +59,7 @@ pub fn gen_sq(g1: &Vec<i32>, g2: &Vec<i32>) -> Vec<i32> {
     }
 }
 
-pub fn find_best_perm(starter_set: &mut Vec<i32>) {
+pub fn find_perm_distribution(starter_set: &mut Vec<i32>) {
         let all_perms = Heap::new(starter_set);
         let mut array: [i64; DATA_ARRAY_LEN] = [0; DATA_ARRAY_LEN];
 
