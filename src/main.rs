@@ -1,6 +1,7 @@
 mod sample;
 mod acc;
 mod study_gl;
+mod etl;
 extern crate permutohedron;
 
 fn main() {

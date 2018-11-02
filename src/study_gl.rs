@@ -94,3 +94,30 @@ pub fn find_best_perm(starter_set: &mut Vec<i32>) {
 
         println!("results: {:?}", array);
 }
+
+
+#[cfg(test)]
+mod tests {
+    use sample::mult_magic;
+    use super::*;
+
+    #[test]
+    fn gl_square_generator() {
+
+        let g1 = vec![0, 76, 30, -23, -30];
+        let g2 = vec![95, 100, 78, 114, 80];
+
+        let gen_sq = gen_sq(&g1, &g2);
+
+        let expected_result = vec![95, 176, 108, 91, 50, 144, 57, 65, 100, 154, 70, 78, 190, 110, 72, 156, 125, 77, 48, 114, 55, 84, 80, 171, 130];
+        assert_eq!(gen_sq, expected_result);
+    }
+
+    #[test]
+    fn test_mult_semi_magic_sq() {
+        let sq = vec![95, 176, 108, 91, 50, 144, 57, 65, 100, 154, 70, 78, 190, 110, 72, 156, 125, 77, 48, 114, 55, 84, 80, 171, 130];
+        let mult_magic_sums = mult_magic(&sq, 5);
+        assert_eq!(mult_magic_sums, 10);
+    }
+
+}
