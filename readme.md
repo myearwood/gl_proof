@@ -16,8 +16,33 @@ Areas of research include:
 - Can we develop rules to create a set of 10 unordered integers, which we can guarantees that doesn't contain any squares with undesirable traits (0s or duplicate elements.)
 
 
+
+### Analyzing the characteristic of a certain class.
+
+    - Are there proportionally worse classes ? or better ones ?
+    - Are their ideal positions ?
+
+
+
+    ##### Better or Worse Classes ?
+
+
+
+
+    ###### Postiionality
+
+    - 10 square had 400 best candidates, so the position analysis is gonna need a hashset or some heavy duty infra to analyze the best positions.
+
+    - Step 1: See if there are any trends in the best 400 candidates (using the eye test, and my embedded neural net.)
+
+
+
+
+
 ### Analyzing the K formulas
 
 - see if the k formula (use gaps similar to the ones in the most successful squares), and see if we also get some other good squares.
 
+
     - I every other variant of the k-formula does not return comparable results. (bummer)
+    - here is the k-formula for reference [ k-30, k-23, k, k+30, k+76, k+78, k+80, k+95, k+100, k+114]
