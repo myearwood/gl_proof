@@ -14,3 +14,10 @@ Areas of research include:
 - Given a unordered set of 10 integers, which we know produces magic squares with 0s or duplicate elements does this behavior generalize to the whole class ?
 
 - Can we develop rules to create a set of 10 unordered integers, which we can guarantees that doesn't contain any squares with undesirable traits (0s or duplicate elements.)
+
+
+### Analyzing the K formulas
+
+- see if the k formula (use gaps similar to the ones in the most successful squares), and see if we also get some other good squares.
+
+    - I every other variant of the k-formula does not return comparable results. (bummer)

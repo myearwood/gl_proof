@@ -1,7 +1,6 @@
+use DATA_ARRAY_LEN;
 use sample;
 use permutohedron::Heap;
-const DATA_ARRAY_LEN: usize = 14;
-
 
 pub fn gen_sq(g1: &Vec<i32>, g2: &Vec<i32>) -> Vec<i32> {
     let mut v: Vec<i32> = Vec::new();
@@ -58,6 +57,42 @@ pub fn gen_sq(g1: &Vec<i32>, g2: &Vec<i32>) -> Vec<i32> {
         vec![-1]
     }
 }
+
+pub fn max_perm_count(starter_set: &mut Vec<i32>) -> i32 {
+        let all_perms = Heap::new(starter_set);
+        let mut max_mults: i32 = 0;
+
+        for perm in all_perms {
+            let r = perm.clone();
+            let mut g1: Vec<i32> = vec![];
+            let mut g2: Vec<i32> = vec![];
+
+            for i in 0..5 {
+                g1.push(r[i])
+            }
+
+            for i in 5..10 {
+                g2.push(r[i])
+            }
+
+            let rand_sq = gen_sq(&g1, &g2);
+            let add_count = sample::add_magic(&rand_sq, 5 as i32);
+            let mult_count = sample::mult_magic(&rand_sq, 5 as i32);
+
+
+
+            if add_count == 12 { 
+                if mult_count > max_mults {
+                    max_mults = mult_count;
+
+                }
+            }
+
+        }
+
+        max_mults
+}
+
 
 pub fn find_perm_distribution(starter_set: &mut Vec<i32>) {
         let all_perms = Heap::new(starter_set);
