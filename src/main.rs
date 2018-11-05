@@ -9,6 +9,17 @@ const DATA_ARRAY_LEN: usize = 13;
 
 fn main() {
 
-    let mut best_candidate = vec![30, 23, 0, 30, 76, 78, 80, 95, 100, 114];
+    let mut best_candidate = vec![-30, -23, 0, 30, 76, 78, 80, 95, 100, 114];
+    let max_count = study_gl::max_perm_count(&mut best_candidate);
+    println!("Max count: {:?}", max_count);
+
+
+    let best_positions = positionality::best_positions(&mut best_candidate, max_count);
+
+    println!("number of positons: {:?}", best_positions.len());
+    for pos in best_positions {
+        println!("{:?}", pos);
+    }
+
     println!("{:?}", best_candidate);
 }
