@@ -13,6 +13,50 @@ fn find_num_positon(array: &Vec<i32>, num: i32, len: usize) -> i32 {
 }
 
 
+
+fn get_pos_pairs(array: &Vec<i32>) -> Vec<(i32, i32, bool)> {
+    let mut results: Vec<(i32, i32, bool)> = Vec::new();
+
+    for i in 0..10 {
+        let current_num = array[i];
+
+        // get the current group
+        if i < 5 {
+            // current group is 1
+            for x in 0..5 {
+                if x != i {
+                    let res_pair = (current_num, array[x], true);
+                    results.push(res_pair);
+                }
+            }
+
+            for x in 5..10 {
+                let res_pair = (current_num, array[x], false);
+                results.push(res_pair);
+            }
+        
+        } else {
+            // current group is 2
+            for x in 0..5 {
+                let res_pair = (current_num, array[x], false);
+                results.push(res_pair)
+            }
+
+            for x in 5..10 {
+                if x != i {
+                    let res_pair = (current_num, array[x], true);
+                    results.push(res_pair);                   
+                }
+
+            }            
+
+        }
+    }
+
+    return results;
+}
+
+
 pub fn new_position(orginal_position: &Vec<i32>, new_position: &Vec<i32>)  -> Vec<i32> {
     let mut results: Vec<i32> = Vec::new();
     let len: usize = orginal_position.len();
@@ -87,6 +131,17 @@ mod tests {
         let expected_result = vec![3,1,2,0];
 
         assert_eq!(expected_result, results);        
+    }
+
+
+
+    #[test]
+    fn test_get_pos_pairs() {
+        let items: Vec<i32> = vec![1,2,3,4,5,6,7,8,9,10];
+        let pos_pairs = get_pos_pairs(&items);
+
+        println!("{:?}", pos_pairs);
+        assert_eq!(pos_pairs.len(), 90);
     }
 
 }

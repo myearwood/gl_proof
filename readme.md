@@ -35,6 +35,8 @@ Areas of research include:
 
     - Step 1: See if there are any trends in the best 400 candidates (using the eye test, and my embedded neural net.)
 
+        - No trends to the naked eye, but let's do an analysis of pairs (does a pair of numbers always appear in the same group, or always in different groups) ?
+
 
 
 
