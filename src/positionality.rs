@@ -57,6 +57,19 @@ fn get_pos_pairs(array: &Vec<i32>) -> Vec<(i32, i32, bool)> {
 }
 
 
+pub fn get_pairs_info(best_positions: &Vec<Vec<i32>>) {
+    for pos in best_positions {
+        let pos_pairs = get_pos_pairs(&pos);
+        for pair in &pos_pairs {
+            let (num1, num2, _paired) = pair;
+            let key = format!("{}_{}", num1, num2);
+            println!("key: {:?}", key);
+        }
+    }
+
+}
+
+
 pub fn new_position(orginal_position: &Vec<i32>, new_position: &Vec<i32>)  -> Vec<i32> {
     let mut results: Vec<i32> = Vec::new();
     let len: usize = orginal_position.len();
