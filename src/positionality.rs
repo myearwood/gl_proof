@@ -1,5 +1,10 @@
 use study_gl::gen_sq;
 use permutohedron::Heap;
+
+use std::collections::HashMap;
+use std::collections::hash_map::Entry::{Occupied, Vacant};
+
+
 use sample;
 
 fn find_num_positon(array: &Vec<i32>, num: i32, len: usize) -> i32 {
@@ -58,11 +63,31 @@ fn get_pos_pairs(array: &Vec<i32>) -> Vec<(i32, i32, bool)> {
 
 
 pub fn get_pairs_info(best_positions: &Vec<Vec<i32>>) {
+    let mut results: HashMap<&String, (i32, i32)> = HashMap::new();
+
     for pos in best_positions {
         let pos_pairs = get_pos_pairs(&pos);
+
         for pair in &pos_pairs {
-            let (num1, num2, _paired) = pair;
+            let (num1, num2, paired) = pair;
             let key = format!("{}_{}", num1, num2);
+
+            // Takes a reference and returns Option<&V>
+            match results.get(&key) {
+                Some(&bool_pair) => {
+                    let (val1, val2) = bool_pair;
+                    if *paired {
+                        results.insert(&key, (val1+1, val2));
+                    } else {
+                        results.insert(&key, (val1, val2+1));
+                    }
+
+                },
+                _ => {
+
+                },
+            }
+
             println!("key: {:?}", key);
         }
     }
