@@ -17,7 +17,11 @@ fn main() {
     let best_positions = positionality::best_positions(&mut best_candidate, max_count);
 
     println!("number of positons: {:?}", best_positions.len());
-    positionality::get_pairs_info(&best_positions);
+    let pairs_results = positionality::get_pairs_info(&best_positions);
+
+    for (pair, bools) in pairs_results {
+        println!("{}: {:?}", pair, bools);
+    }
 
 
     println!("{:?}", best_candidate);

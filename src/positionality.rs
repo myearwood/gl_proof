@@ -62,7 +62,7 @@ fn get_pos_pairs(array: &Vec<i32>) -> Vec<(i32, i32, bool)> {
 }
 
 
-pub fn get_pairs_info(best_positions: &Vec<Vec<i32>>) {
+pub fn get_pairs_info(best_positions: &Vec<Vec<i32>>) -> HashMap<String, (i32, i32)> {
     let mut results: HashMap<String, (i32, i32)> = HashMap::new();
 
     for pos in best_positions {
@@ -78,7 +78,6 @@ pub fn get_pairs_info(best_positions: &Vec<Vec<i32>>) {
             
 
             let key = format!("{}_{}", num1, num2);
-            let ref_key = key.clone();
 
             results.entry(key)
                .and_modify(|bool_pair| { 
@@ -90,10 +89,10 @@ pub fn get_pairs_info(best_positions: &Vec<Vec<i32>>) {
                     } 
                })
                .or_insert(new_pair);
-
-            println!("key: {:?}", ref_key);
         }
     }
+
+    results
 }
 
 
