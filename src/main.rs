@@ -18,6 +18,7 @@ fn main() {
 
     println!("number of positons: {:?}", best_positions.len());
     let pairs_results = positionality::get_pairs_info(&best_positions);
+    // let dedupped_results = positionality::dedup_pairs(&pairs_results);
 
     for (pair, bools) in pairs_results {
         println!("{}: {:?}", pair, bools);

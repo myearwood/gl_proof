@@ -95,6 +95,31 @@ pub fn get_pairs_info(best_positions: &Vec<Vec<i32>>) -> HashMap<String, (i32, i
     results
 }
 
+fn get_dedupped_pair(short_pair: String) -> String {
+    let nums_split = short_pair.split("_");
+    let nums: Vec<&str> = nums_split.collect();
+
+    let num1: i32 = nums[0].parse().unwrap();
+    let num2: i32 = nums[1].parse().unwrap();
+
+    if num1 > num2 {
+        return format!("{}_{}", num1, num2)
+    } else {
+        return format!("{}_{}", num2, num1)
+    }
+}
+
+
+// pub fn dedup_pairs(raw_results: &HashMap<String, (i32, i32)>) -> HashMap<String, (i32, i32)> {
+//         let mut results: HashMap<String, (i32, i32)> = HashMap::new();
+
+//     for (pair, bools) in raw_results {
+//         big_pair = 
+
+//         println!("{}: {:?}", pair, bools);
+//     }
+
+// }
 
 pub fn new_position(orginal_position: &Vec<i32>, new_position: &Vec<i32>)  -> Vec<i32> {
     let mut results: Vec<i32> = Vec::new();
@@ -181,6 +206,17 @@ mod tests {
 
         println!("{:?}", pos_pairs);
         assert_eq!(pos_pairs.len(), 90);
+    }
+
+    #[test]
+    fn test_get_dedupped_pair() {
+        let p1 = String::from("6_2");
+        let p2 = String::from("2_6");
+
+        let e1 = get_dedupped_pair(p1);
+        let e2 = get_dedupped_pair(p2);
+
+        assert_eq!(e1, e2);
     }
 
 }
