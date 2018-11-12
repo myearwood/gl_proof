@@ -110,16 +110,16 @@ fn get_dedupped_pair(short_pair: String) -> String {
 }
 
 
-// pub fn dedup_pairs(raw_results: &HashMap<String, (i32, i32)>) -> HashMap<String, (i32, i32)> {
-//         let mut results: HashMap<String, (i32, i32)> = HashMap::new();
+pub fn dedup_pairs(raw_results: &HashMap<String, (i32, i32)>) -> HashMap<String, (i32, i32)> {
+    let mut results: HashMap<String, (i32, i32)> = HashMap::new();
 
-//     for (pair, bools) in raw_results {
-//         big_pair = 
+    for (pair, bools) in raw_results {
+        let dedupped_pair = get_dedupped_pair(pair.to_string());
+        results.entry(dedupped_pair).or_insert(*bools);
+    }
 
-//         println!("{}: {:?}", pair, bools);
-//     }
-
-// }
+    results
+}
 
 pub fn new_position(orginal_position: &Vec<i32>, new_position: &Vec<i32>)  -> Vec<i32> {
     let mut results: Vec<i32> = Vec::new();
