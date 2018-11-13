@@ -37,6 +37,8 @@ Areas of research include:
 
         - No trends to the naked eye, but let's do an analysis of pairs (does a pair of numbers always appear in the same group, or always in different groups) ?
 
+        - definitely some pairs that are less common that others - but we need to get a bigger basket to see if their are global trends - back to the original problem :(( . lets try to get some better candidates and go back to the search problem. maybe swing back and focus on the negative cases ? 
+
 
 
 
